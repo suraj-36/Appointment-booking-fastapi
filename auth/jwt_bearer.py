@@ -11,7 +11,6 @@ class JwtBearer(HTTPBearer):
         None
     """
 
-
     def __inti__(self, auto_error:bool = True):
         """Initializes a JwtBearer instance
         Args:
