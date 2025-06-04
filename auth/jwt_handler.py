@@ -12,10 +12,10 @@ def token_response(token:str):
         "access token":token
     }
 
-def singJWT(userID: str):
+def singJWT(user_id: str):
     """singnJWT method"""
     payload = {
-        "userID":userID,
+        "userID":user_id,
         "expiry":time.time() + 600
     }
     token = JWT.encode(payload, JWT_SECRET, JWT_ALGORITHM)
