@@ -1,7 +1,7 @@
 """Importing the necessary files for the jwt_bearer file"""
 from fastapi import Request, HTTPException
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
-from jwt_handler import decode_jwt
+from auth import jwt_handler
 
 class JwtBearer(HTTPBearer):
     """
@@ -10,6 +10,7 @@ class JwtBearer(HTTPBearer):
     Attributes:
         None
     """
+
 
     def __inti__(self, auto_error:bool = True):
         """Initializes a JwtBearer instance
@@ -37,7 +38,7 @@ class JwtBearer(HTTPBearer):
         """
 
         is_token_valid = bool = False
-        payload = decode_jwt(jwt_token)    
+        payload = jwt_handler.decode_jwt(jwt_token)    
         if payload:
             is_token_valid  = True
         return is_token_valid
